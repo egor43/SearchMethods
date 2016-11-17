@@ -1,0 +1,6 @@
+D:\TestSearchMethod\TestSearchMethod\bin\Debug\TestSearchMethod.exe.config
+D:\TestSearchMethod\TestSearchMethod\bin\Debug\TestSearchMethod.exe
+D:\TestSearchMethod\TestSearchMethod\bin\Debug\TestSearchMethod.pdb
+D:\TestSearchMethod\TestSearchMethod\obj\Debug\TestSearchMethod.csprojResolveAssemblyReference.cache
+D:\TestSearchMethod\TestSearchMethod\obj\Debug\TestSearchMethod.exe
+D:\TestSearchMethod\TestSearchMethod\obj\Debug\TestSearchMethod.pdb
