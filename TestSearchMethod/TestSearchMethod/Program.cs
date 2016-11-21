@@ -28,7 +28,7 @@ namespace TestSearchMethod
             string elapsed_time = String.Format("{0:00}:{1:00}:{2:00}:{3:00}", time.Hours, time.Minutes, time.Seconds, time.Milliseconds);
             if (flag)
             {
-                Console.WriteLine("Value is found! Time: "+elapsed_time);
+                Console.WriteLine("Value is found! Time: " + elapsed_time);
                 return flag;
             }
             Console.WriteLine("Value is NOT found! Time: " + elapsed_time);
@@ -40,7 +40,6 @@ namespace TestSearchMethod
             Console.Write("Interpolation search: ");
             Stopwatch timer = new Stopwatch();
             timer.Start();
-            Array.Sort(args);
             bool flag = false;
             int mid;
             int low_border = 0;
@@ -70,6 +69,65 @@ namespace TestSearchMethod
             return flag;
         }
 
+        public static bool FibonnacheSearch(int[] args, int search_value)
+        {
+            Console.Write("Fibonnache search: ");
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+            int[] Fib_Array = new int[45];
+            Fib_Array[0] = 0;
+            Fib_Array[1] = 1;
+            Fib_Array[2] = 2;
+            for (int i = 3; i < 45; i++)
+            {
+                Fib_Array[i] = Fib_Array[i - 1] + Fib_Array[i - 2];
+            }
+            bool flag = false;
+            int[] Other_Array = args;
+            bool iter_flag = true;
+            if (Other_Array[Other_Array.Length - 1] < search_value) iter_flag = false;
+            while (iter_flag)
+            {
+                int x = 0;
+                int y = Other_Array.Length - 1;
+                for (int i = 0; i < Fib_Array.Length - 1; i++)
+                {
+                    if ((Fib_Array[i] < Other_Array.Length-1) && (Other_Array[Fib_Array[i]] <= search_value)) x = Fib_Array[i];
+                    if ((Fib_Array[i+1] < Other_Array.Length-1) && (Other_Array[Fib_Array[i + 1]] >= search_value))
+                    {
+                        y = Fib_Array[i+1];
+                        break;
+                    }
+                    //if (Other_Array[Fib_Array[i]] >= search_value)
+                    //{
+                    //    y = Fib_Array[i];
+                    //    break;
+                    //}
+                }
+                if (y-x<2)
+                {
+                    flag = true;
+                    break;
+                }
+                List<int> arr = new List<int>();
+                for (int j = x; j <= y; j++)
+                {
+                    arr.Add(Other_Array[j]);
+                }
+                Other_Array = arr.ToArray();
+            }
+            timer.Stop();
+            TimeSpan time = timer.Elapsed;
+            string elapsed_time = String.Format("{0:00}:{1:00}:{2:00}:{3:00}", time.Hours, time.Minutes, time.Seconds, time.Milliseconds);
+            if (flag)
+            {
+                Console.WriteLine("Value is found! Time: " + elapsed_time);
+                return flag;
+            }
+            Console.WriteLine("Value is NOT found! Time: " + elapsed_time);
+            return flag;
+        }
+
         static void Main(string[] args)
         {
             Random rnd = new Random();
@@ -77,12 +135,15 @@ namespace TestSearchMethod
             int[] Array = new int[134217727];
             for (int i = 0; i < Array.Length; i++) //134217727
             {
-                Array[i]=rnd.Next(0, 9999999);
+                Array[i] = rnd.Next(0, 9999999);
             }
             Console.WriteLine("Массив создан!");
-
-            LinearSearch(Array, 9999999);
-            InterpolationSearch(Array, 9999999);
+            Console.WriteLine("Сортировка массива...");
+            System.Array.Sort(Array);
+            Console.WriteLine("Массив отсортирован");
+            LinearSearch(Array, 400);
+            //InterpolationSearch(Array, 9999999);
+            FibonnacheSearch(Array, 400);
             Console.ReadLine();
         }
     }

@@ -4,3 +4,9 @@ D:\TestSearchMethod\TestSearchMethod\bin\Debug\TestSearchMethod.pdb
 D:\TestSearchMethod\TestSearchMethod\obj\Debug\TestSearchMethod.csprojResolveAssemblyReference.cache
 D:\TestSearchMethod\TestSearchMethod\obj\Debug\TestSearchMethod.exe
 D:\TestSearchMethod\TestSearchMethod\obj\Debug\TestSearchMethod.pdb
+D:\Egor\GitRepository\SearchMethods\TestSearchMethod\TestSearchMethod\bin\Debug\TestSearchMethod.exe.config
+D:\Egor\GitRepository\SearchMethods\TestSearchMethod\TestSearchMethod\obj\Debug\TestSearchMethod.exe
+D:\Egor\GitRepository\SearchMethods\TestSearchMethod\TestSearchMethod\obj\Debug\TestSearchMethod.pdb
+D:\Egor\GitRepository\SearchMethods\TestSearchMethod\TestSearchMethod\bin\Debug\TestSearchMethod.exe
+D:\Egor\GitRepository\SearchMethods\TestSearchMethod\TestSearchMethod\bin\Debug\TestSearchMethod.pdb
+D:\Egor\GitRepository\SearchMethods\TestSearchMethod\TestSearchMethod\obj\Debug\TestSearchMethod.csprojResolveAssemblyReference.cache
