@@ -25,7 +25,7 @@ namespace TestSearchMethod
             }
             timer.Stop();
             TimeSpan time = timer.Elapsed;
-            string elapsed_time = String.Format("{0:00}:{1:00}:{2:00}:{3:00}", time.Hours, time.Minutes, time.Seconds, time.Milliseconds);
+            string elapsed_time = String.Format("{0:00}:{1}", time.Seconds, time.TotalMilliseconds);
             if (flag)
             {
                 Console.WriteLine("Value is found! Time: " + elapsed_time);
@@ -59,7 +59,7 @@ namespace TestSearchMethod
             if ((args[low_border] == search_value) || (args[high_border] == search_value)) flag = true;
             timer.Stop();
             TimeSpan time = timer.Elapsed;
-            string elapsed_time = String.Format("{0:00}:{1:00}:{2:00}:{3:00}", time.Hours, time.Minutes, time.Seconds, time.Milliseconds);
+            string elapsed_time = String.Format("{0:00}:{1}", time.Seconds, time.TotalMilliseconds);
             if (flag)
             {
                 Console.WriteLine("Value is found! Time: " + elapsed_time);
@@ -113,7 +113,7 @@ namespace TestSearchMethod
             }
             timer.Stop();
             TimeSpan time = timer.Elapsed;
-            string elapsed_time = String.Format("{0:00}:{1:00}:{2:00}:{3:00}", time.Hours, time.Minutes, time.Seconds, time.Milliseconds);
+            string elapsed_time = String.Format("{0:00}:{1}", time.Seconds, time.TotalMilliseconds);
             if (flag)
             {
                 Console.WriteLine("Value is found! Time: " + elapsed_time);
@@ -136,9 +136,9 @@ namespace TestSearchMethod
             Console.WriteLine("Сортировка массива...");
             System.Array.Sort(Array);
             Console.WriteLine("Массив отсортирован");
-            LinearSearch(Array, 465545);
-            InterpolationSearch(Array, 465545);
-            FibonnacheSearch(Array, 465545);
+            LinearSearch(Array, 400);
+            InterpolationSearch(Array, 400);
+            FibonnacheSearch(Array, 400);
             Console.ReadLine();
         }
     }
