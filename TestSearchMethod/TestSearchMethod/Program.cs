@@ -41,9 +41,9 @@ namespace TestSearchMethod
             Stopwatch timer = new Stopwatch();
             timer.Start();
             bool flag = false;
-            int mid;
-            int low_border = 0;
-            int high_border = args.Length - 1;
+            long mid;
+            long low_border = 0;
+            long high_border = args.Length - 1;
             while ((args[low_border] < search_value) && (args[high_border] > search_value))
             {
                 mid = low_border + ((search_value - args[low_border]) * (high_border - low_border)) / (args[high_border] - args[low_border]);
@@ -85,26 +85,21 @@ namespace TestSearchMethod
             bool flag = false;
             int[] Other_Array = args;
             bool iter_flag = true;
-            if (Other_Array[Other_Array.Length - 1] < search_value) iter_flag = false;
+            if ((Other_Array[Other_Array.Length - 1] < search_value)|| (Other_Array[0] > search_value)) iter_flag = false;
             while (iter_flag)
             {
                 int x = 0;
                 int y = Other_Array.Length - 1;
                 for (int i = 0; i < Fib_Array.Length - 1; i++)
                 {
-                    if ((Fib_Array[i] < Other_Array.Length-1) && (Other_Array[Fib_Array[i]] <= search_value)) x = Fib_Array[i];
-                    if ((Fib_Array[i+1] < Other_Array.Length-1) && (Other_Array[Fib_Array[i + 1]] >= search_value))
+                    if ((Fib_Array[i] < Other_Array.Length-1) && (Other_Array[Fib_Array[i]] < search_value)) x = Fib_Array[i+1];
+                    if ((Fib_Array[i+1] < Other_Array.Length-1) && (Other_Array[Fib_Array[i + 1]] > search_value))
                     {
                         y = Fib_Array[i+1];
                         break;
                     }
-                    //if (Other_Array[Fib_Array[i]] >= search_value)
-                    //{
-                    //    y = Fib_Array[i];
-                    //    break;
-                    //}
                 }
-                if (y-x<2)
+                if (x==y)
                 {
                     flag = true;
                     break;
@@ -141,9 +136,9 @@ namespace TestSearchMethod
             Console.WriteLine("Сортировка массива...");
             System.Array.Sort(Array);
             Console.WriteLine("Массив отсортирован");
-            LinearSearch(Array, 400);
-            //InterpolationSearch(Array, 9999999);
-            FibonnacheSearch(Array, 400);
+            LinearSearch(Array, 465545);
+            InterpolationSearch(Array, 465545);
+            FibonnacheSearch(Array, 465545);
             Console.ReadLine();
         }
     }
